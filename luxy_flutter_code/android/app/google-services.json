@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "89655157327",
+    "project_id": "luxy-tcc",
+    "storage_bucket": "luxy-tcc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:89655157327:android:db8d08e16e3451f23b803a",
+        "android_client_info": {
+          "package_name": "com.example.luxy_flutter_code"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCYep9He5V8i5Oa3SVas1xF_OXkB11XQ6w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
