@@ -24,7 +24,7 @@ class _LoginViewState extends State<login_view> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black, // Colors.purple[900],
+      backgroundColor: Colors.purple[900],
       body: Column(
         children: [
           //Logo
@@ -34,7 +34,7 @@ class _LoginViewState extends State<login_view> {
             ),
             //Gambiarra com a imagem
             child: Image.network(
-              'https://raw.githubusercontent.com/TheYanVictor/LuxY/main/luxy_flutter_code/assets/img/LuxY.png',
+              'https://raw.githubusercontent.com/TheYanVictor/LuxY/main/luxy_flutter_code/assets/img/LuxY-branco.png',
               fit: BoxFit.fill,
             ),
           ),
