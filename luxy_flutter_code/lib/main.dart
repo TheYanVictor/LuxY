@@ -1,8 +1,10 @@
 import 'dart:ui';
+import 'dart:ui_web';
 
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:device_preview/device_preview.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:luxy_flutter_code/firebase_options.dart';
 import 'package:luxy_flutter_code/view/cadastrar_view.dart';
 import 'package:luxy_flutter_code/view/login_view.dart';
@@ -31,7 +33,13 @@ void main() {
     DevicePreview(
       enabled: true,
       builder: (context) => MaterialApp(
+        //New font
+        theme: ThemeData(
+          fontFamily: GoogleFonts.getFont('Domine').fontFamily,
+        ),
+
         useInheritedMediaQuery: true,
+
         debugShowCheckedModeBanner: true,
         scrollBehavior: MyCustomBehavior(),
 

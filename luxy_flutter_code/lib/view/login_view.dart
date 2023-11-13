@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, sized_box_for_whitespace
 
 import 'package:flutter/material.dart';
-
+import 'package:google_fonts/google_fonts.dart';
 import '../controller/login_controller.dart';
 
 class login_view extends StatefulWidget {
@@ -24,113 +24,149 @@ class _LoginViewState extends State<login_view> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: EdgeInsets.fromLTRB(30, 50, 30, 50),
-        child: Column(
-          children: [
-            Text(
-              'Login',
-              style: TextStyle(fontSize: 60),
+      backgroundColor: Colors.purple[900],
+      body: Column(
+        children: [
+          //Logo
+          Container(
+            margin: EdgeInsets.only(
+              top: 150,
             ),
-            SizedBox(height: 60),
-            TextField(
+            child: Image.network(
+              'https://cdn-icons-png.flaticon.com/512/4907/4907559.png',
+              width: 200,
+              height: 200,
+            ),
+          ),
+          SizedBox(height: 50),
+          //Email
+          Container(
+            width: 350,
+            child: TextField(
               controller: txtEmail,
+              showCursor: true,
               decoration: InputDecoration(
-                  labelText: 'Email',
-                  prefixIcon: Icon(Icons.email),
-                  border: OutlineInputBorder()),
+                //Make this textfield white
+                filled: true,
+                fillColor: Colors.white,
+                labelText: 'Email',
+                prefixIcon: Icon(Icons.email),
+                //Rounder border
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(50),
+                ),
+              ),
             ),
-            SizedBox(height: 15),
-            TextField(
+          ),
+          //Space between email and password
+          SizedBox(height: 20),
+          //Password field
+          Container(
+            width: 350,
+            child: TextField(
               controller: txtSenha,
               obscureText: true,
               decoration: InputDecoration(
-                  labelText: 'Senha',
-                  prefixIcon: Icon(Icons.password),
-                  border: OutlineInputBorder()),
-            ),
-            Align(
-              alignment: Alignment.bottomRight,
-              child: TextButton(
-                onPressed: () {
-                  showDialog(
-                    context: context,
-                    builder: (BuildContext context) {
-                      return AlertDialog(
-                        title: Text("Esqueceu a senha?"),
-                        content: Container(
-                          height: 150,
-                          child: Column(
-                            children: [
-                              Text(
-                                "Identifique-se para receber um e-mail com as instruções e o link para criar uma nova senha.",
-                              ),
-                              SizedBox(height: 25),
-                              TextField(
-                                controller: txtEmailEsqueceuSenha,
-                                decoration: InputDecoration(
-                                  labelText: 'Email',
-                                  prefixIcon: Icon(Icons.email),
-                                  border: OutlineInputBorder(),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        actionsPadding: EdgeInsets.all(20),
-                        actions: [
-                          TextButton(
-                            onPressed: () {
-                              Navigator.pop(context);
-                            },
-                            child: Text('cancelar'),
-                          ),
-                          ElevatedButton(
-                            onPressed: () {
-                              LoginController().esqueceuSenha(
-                                context,
-                                txtEmailEsqueceuSenha.text,
-                              );
-                            },
-                            child: Text('enviar'),
-                          ),
-                        ],
-                      );
-                    },
-                  );
-                },
-                child: Text('Esqueceu a senha?'),
+                //make this textfield white
+                filled: true,
+                fillColor: Colors.white,
+                labelText: 'Password',
+                prefixIcon: Icon(Icons.password),
+                //Rounder border
+                border: OutlineInputBorder(
+                  //Shorten the button width
+                  borderRadius: BorderRadius.circular(50),
+                ),
               ),
             ),
-            SizedBox(height: 15),
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                minimumSize: Size(200, 40),
-              ),
+          ),
+          //Forgot password button
+          Align(
+            alignment: Alignment.center,
+            child: TextButton(
               onPressed: () {
-                LoginController().login(
-                  context,
-                  txtEmail.text,
-                  txtSenha.text,
+                showDialog(
+                  context: context,
+                  builder: (BuildContext context) {
+                    return AlertDialog(
+                      title: Text(
+                        "Forgot your password?",
+                      ),
+                      content: Container(
+                        height: 150,
+                        child: Column(
+                          children: [
+                            Text(
+                              "Write your email below and we'll send you a link to reset your password.",
+                            ),
+                            SizedBox(height: 25),
+                            TextField(
+                              controller: txtEmailEsqueceuSenha,
+                              decoration: InputDecoration(
+                                labelText: 'Email',
+                                prefixIcon: Icon(Icons.email),
+                                border: OutlineInputBorder(),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      actionsPadding: EdgeInsets.all(20),
+                      actions: [
+                        TextButton(
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
+                          child: Text('Cancel'),
+                        ),
+                        ElevatedButton(
+                          onPressed: () {
+                            LoginController().esqueceuSenha(
+                              context,
+                              txtEmailEsqueceuSenha.text,
+                            );
+                          },
+                          child: Text('Send'),
+                        ),
+                      ],
+                    );
+                  },
                 );
               },
-              child: Text('Entrar'),
-            ),
-            SizedBox(height: 40),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text('Ainda não tem conta?'),
-                TextButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, 'cadastrar_view');
-                  },
-                  child: Text('Cadastre-se'),
+              child: Text(
+                'Forgot your password?',
+                style: TextStyle(
+                  fontSize: 18,
+                  color: Colors.white54,
                 ),
-              ],
-            )
-          ],
-        ),
+              ),
+            ),
+          ),
+          //Space between password and login button
+          SizedBox(height: 20),
+          //Login button
+          ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(50),
+              ),
+              minimumSize: Size(200, 60),
+            ),
+            onPressed: () {
+              LoginController().login(
+                context,
+                txtEmail.text,
+                txtSenha.text,
+              );
+            },
+            child: Text(
+              'Login',
+              style: TextStyle(
+                fontSize: 20,
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
