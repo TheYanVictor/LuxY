@@ -32,11 +32,8 @@ class _LoginViewState extends State<login_view> {
             margin: EdgeInsets.only(
               top: 150,
             ),
-            child: Image.network(
-              'https://cdn-icons-png.flaticon.com/512/4907/4907559.png',
-              width: 200,
-              height: 200,
-            ),
+            //Gambiarra com a imagem
+            child: //Image.asset(),
           ),
           SizedBox(height: 50),
           //Email
