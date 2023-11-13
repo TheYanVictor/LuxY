@@ -24,18 +24,21 @@ class _LoginViewState extends State<login_view> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.purple[900],
+      backgroundColor: Colors.black, // Colors.purple[900],
       body: Column(
         children: [
           //Logo
           Container(
             margin: EdgeInsets.only(
-              top: 150,
+              top: 75,
             ),
             //Gambiarra com a imagem
-            child: //Image.asset(),
+            child: Image.network(
+              'https://raw.githubusercontent.com/TheYanVictor/LuxY/main/luxy_flutter_code/assets/img/LuxY.png',
+              fit: BoxFit.fill,
+            ),
           ),
-          SizedBox(height: 50),
+          SizedBox(height: 20),
           //Email
           Container(
             width: 350,
@@ -77,6 +80,8 @@ class _LoginViewState extends State<login_view> {
               ),
             ),
           ),
+          //Space between password and forgot password button
+          SizedBox(height: 10),
           //Forgot password button
           Align(
             alignment: Alignment.center,
