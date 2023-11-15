@@ -24,66 +24,156 @@ class _CadastrarViewState extends State<cadastrar_view> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.purple[900],
+      //
+      //App bar
+      //
+      appBar: AppBar(
+        backgroundColor: Colors.purple[900],
+        elevation: 0,
+        title: Text(
+          'Register',
+          style: TextStyle(
+            fontSize: 25,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        centerTitle: true,
+      ),
       body: Padding(
         padding: EdgeInsets.fromLTRB(30, 50, 30, 50),
         child: Column(
           children: [
-            Text(
-              'Criar Conta',
-              style: TextStyle(fontSize: 60),
-            ),
-            SizedBox(height: 60),
+            //
+            //Space
+            //
+            SizedBox(height: 40),
+            //
+            //Name
+            //
             TextField(
               controller: txtNome,
+              showCursor: true,
               decoration: InputDecoration(
-                  labelText: 'Nome',
-                  prefixIcon: Icon(Icons.person),
-                  border: OutlineInputBorder()),
+                //Make this textfield white
+                filled: true,
+                fillColor: Colors.white,
+                labelText: 'Name',
+                prefixIcon: Icon(Icons.person),
+                //Rounder border
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(50),
+                ),
+              ),
             ),
-            SizedBox(height: 15),
+            //
+            //Space
+            //
+            SizedBox(height: 20),
+            //
+            //Email
+            //
             TextField(
               controller: txtEmail,
+              showCursor: true,
               decoration: InputDecoration(
-                  labelText: 'Email',
-                  prefixIcon: Icon(Icons.email),
-                  border: OutlineInputBorder()),
+                //Make this textfield white
+                filled: true,
+                fillColor: Colors.white,
+                labelText: 'Email',
+                prefixIcon: Icon(Icons.email),
+                //Rounder border
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(50),
+                ),
+              ),
             ),
-            SizedBox(height: 15),
+            //
+            //Space between email and password
+            //
+            SizedBox(height: 20),
+            //
+            //Password field
+            //
             TextField(
               controller: txtSenha,
               obscureText: true,
               decoration: InputDecoration(
-                  labelText: 'Senha',
-                  prefixIcon: Icon(Icons.password),
-                  border: OutlineInputBorder()),
+                //make this textfield white
+                filled: true,
+                fillColor: Colors.white,
+                labelText: 'Password',
+                prefixIcon: Icon(Icons.password),
+                //Rounder border
+                border: OutlineInputBorder(
+                  //Shorten the button width
+                  borderRadius: BorderRadius.circular(50),
+                ),
+              ),
             ),
+            //
+            //Space between buttons
+            //
             SizedBox(height: 40),
+            //
+            //Register button
+            //
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                TextButton(
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  child: Text('cancelar'),
-                ),
-                ElevatedButton(
-                  style: OutlinedButton.styleFrom(
-                    minimumSize: Size(140, 40),
+                //Cancel button
+                Container(
+                  height: 35,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    style: ElevatedButton.styleFrom(
+                      primary: const Color.fromARGB(255, 138, 66, 226),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(50),
+                      ),
+                    ),
+                    child: Text(
+                      'Cancel',
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
                   ),
-                  onPressed: () {
-                    LoginController().criarConta(
-                      context,
-                      txtNome.text,
-                      txtEmail.text,
-                      txtSenha.text,
-                    );
-                  },
-                  child: Text('salvar'),
+                ),
+                //Space between buttons
+                SizedBox(width: 10),
+                //Register
+                Container(
+                  height: 35,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      LoginController().criarConta(
+                        context,
+                        txtNome.text,
+                        txtEmail.text,
+                        txtSenha.text,
+                      );
+                    },
+                    style: ElevatedButton.styleFrom(
+                      primary: const Color.fromARGB(255, 138, 66, 226),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(50),
+                      ),
+                    ),
+                    child: Text(
+                      'Register',
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
                 ),
               ],
             ),
-            SizedBox(height: 40),
           ],
         ),
       ),

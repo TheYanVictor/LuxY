@@ -20,53 +20,24 @@ class MyCustomBehavior extends MaterialScrollBehavior {
       };
 }
 
-void main() {
-  Future<void> main() async {
-    await Firebase.initializeApp(
-      options: DefaultFirebaseOptions.currentPlatform,
-    );
-  }
-
-  ;
+Future<void> main() async {
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
 
   runApp(
     DevicePreview(
       enabled: true,
       builder: (context) => MaterialApp(
-        //New font
-        theme: ThemeData(
-          fontFamily: GoogleFonts.getFont('Domine').fontFamily,
-        ),
-
         useInheritedMediaQuery: true,
-
-        debugShowCheckedModeBanner: true,
-        scrollBehavior: MyCustomBehavior(),
-
-        //Navigation routes
+        debugShowCheckedModeBanner: false,
         initialRoute: 'login',
         routes: {
-          //Login Page
-          'login': (context) => login_view(),
-          'cadastrar_view': (context) => cadastrar_view(),
-
-          //Main menu page
-          'principal_view': (context) => principal_view(),
-
-          //Following pages
+          'cadastrar_view': (context) => const cadastrar_view(),
+          'login': (context) => const login_view(),
+          'principal_view': (context) => const principal_view(),
         },
       ),
     ),
   );
-}
-
-class MainApp extends StatelessWidget {
-  const MainApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(),
-    );
-  }
 }

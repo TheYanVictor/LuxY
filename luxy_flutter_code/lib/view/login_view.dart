@@ -27,7 +27,9 @@ class _LoginViewState extends State<login_view> {
       backgroundColor: Colors.purple[900],
       body: Column(
         children: [
+          //
           //Logo
+          //
           Container(
             margin: EdgeInsets.only(
               top: 75,
@@ -39,7 +41,9 @@ class _LoginViewState extends State<login_view> {
             ),
           ),
           SizedBox(height: 20),
+          //
           //Email
+          //
           Container(
             width: 350,
             child: TextField(
@@ -58,9 +62,13 @@ class _LoginViewState extends State<login_view> {
               ),
             ),
           ),
+          //
           //Space between email and password
+          //
           SizedBox(height: 20),
+          //
           //Password field
+          //
           Container(
             width: 350,
             child: TextField(
@@ -82,7 +90,9 @@ class _LoginViewState extends State<login_view> {
           ),
           //Space between password and forgot password button
           SizedBox(height: 10),
+          //
           //Forgot password button
+          //
           Align(
             alignment: Alignment.center,
             child: TextButton(
@@ -144,9 +154,13 @@ class _LoginViewState extends State<login_view> {
               ),
             ),
           ),
+          //
           //Space between password and login button
+          //
           SizedBox(height: 20),
+          //
           //Login button
+          //
           ElevatedButton(
             style: ElevatedButton.styleFrom(
               shape: RoundedRectangleBorder(
@@ -168,6 +182,30 @@ class _LoginViewState extends State<login_view> {
               ),
             ),
           ),
+          //
+          //Space between login button and register button
+          //
+          Spacer(),
+          //
+          //Register button
+          //
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                'Don\'t have an account?',
+                style: TextStyle(color: Colors.white54),
+              ),
+              TextButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, 'cadastrar_view');
+                },
+                child: Text('Register'),
+              ),
+            ],
+          ),
+          //Space between register button and bottom
+          SizedBox(height: 20),
         ],
       ),
     );
