@@ -72,8 +72,9 @@ class _LoginViewState extends State<login_view> {
           Container(
             width: 350,
             child: TextField(
-              controller: txtSenha,
               obscureText: true,
+              obscuringCharacter: String.fromCharCode(8226),
+              controller: txtSenha,
               decoration: InputDecoration(
                 //make this textfield white
                 filled: true,
