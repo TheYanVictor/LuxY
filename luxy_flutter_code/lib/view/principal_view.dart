@@ -30,11 +30,25 @@ class _principal_viewState extends State<principal_view> {
           ),
         ),
       ),
-      body: const Center(
-        child: Text(
-          'Menu princial',
-          style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
-        ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          //Pop up no canto direito superior da tela para adicionar um novo grupo
+          Center(
+            child: FloatingActionButton(
+              backgroundColor: Color.fromARGB(255, 94, 11, 226),
+              onPressed: () {
+                showDialog(
+                  context: context,
+                  builder: (BuildContext context) {
+                    return Text('Abrir a camera');
+                  },
+                );
+              },
+              child: const Icon(Icons.add),
+            ),
+          ),
+        ],
       ),
     );
   }
